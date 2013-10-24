@@ -1,6 +1,6 @@
 {
 	"name": "iconv",
-	"url" : "https://github.com/larsiusprime/waxe",
+	"url" : "https://github.com/scabwort/haxeiconv/",
 	"license": "MIT",
 	"tags": ["cpp","neko"],
 	"description": "The iconv project allows haxe to access the iconv library via the neko or c++ targets. ",
