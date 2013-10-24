@@ -1,0 +1,31 @@
+<xml>
+<include name="${HXCPP}/build-tool/BuildCommon.xml"/>
+<set name="tool" value="exe" unless="iphone"/>
+<set name="tool" value="static" if="iphone"/>
+
+<files id="iconv" dir="./src">
+	<compilerflag value="-I./src"/>
+	<compilerflag value = "-Iinclude"/>
+	<compilerflag value = "-DUSING_STATIC_LIBICONV" if="windows"/>
+	<file name="api.cpp" />
+</files>
+
+<target id="iconv" output="${LIBPREFIX}iconv${DBG}${LIBEXTRA}" tool="linker" toolid="${STD_MODULE_LINK}">
+  <ext value=".ndll" unless="mobile"/>
+  <files id="iconv"/>
+  <lib name="lib/libiconvStatic.lib" if="windows"/>
+  <lib name="lib/libiconvStatic.a" if="linux"/>
+  <lib name="lib/libiconvStatic.a" if="macos"/>
+  <lib name="kernel32.lib" if="windows"/>
+  <lib name="user32.lib" if="windows"/>
+  <lib name="comdlg32.lib" if="windows"/>
+  <lib name="advapi32.lib" if="windows"/>
+  <lib name="shell32.lib" if="windows"/>
+  <vflag name="-framework" value="IOKit" if="macos"/>
+  <vflag name="-framework" value="Foundation" if="macos"/>
+  <vflag name="-framework" value="Carbon" if="macos"/>
+  <outdir name="../ndll/${BINDIR}"/>
+</target>
+
+<target id="default"> <target id="iconv" /> </target>
+</xml>

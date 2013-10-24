@@ -1,0 +1,2 @@
+2013-10-24: 1.0.0
+	APIs now add to lib
