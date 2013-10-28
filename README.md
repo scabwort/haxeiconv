@@ -1,25 +1,28 @@
 iconv
 ========
 
-fork of iconv ( http://www.gnu.org/software/libiconv/ ) for Haxe 3/Neko 2
+fork of iconv ( https://github.com/scabwort/haxeiconv ) for Haxe 3/Neko 2
 
-## 使用
+## how to use
 
-最常见的场景在Windows的文件路径使用GB2312编码，和haxe内部的编码格式不同，创建文件时会乱码。
+Many system use native code, like windows, if you want keep coding with haxe coding, you maybe need change the native coding to haxe coding(utf-8) to keep coding readable.
+This library provides an Iconv.convert() implementation, for use on systems which don't have one, or whose implementation cannot convert from/to another coding.
 
-    var dst = Iconv.convert("中国 UTF-8", Iconv.UTF8, Iconv.GB2312);
+eg. (if you are windows system of GBK, you can change coding to create readable folder using native coding.)
+    
+	var dst = Iconv.convert("中国 UTF-8", Iconv.UTF8, Iconv.GBK);
     FileSystem.createDirectory(dst);
 
-## 安装
+## install
 
-    haxelib install haxeiconv
+    haxelib install iconv
 
-## 贡献
+## contributor
 
 * [@scabwort](https://github.com/scabwort)
 * [@imcj](https://github.com/imcj)
 
-## 需求
+## required
 
     haxe >= 3.0
     neko >= 2.0
