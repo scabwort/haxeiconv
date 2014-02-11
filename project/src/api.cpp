@@ -21,8 +21,8 @@ char *Val2Str(value inVal)
          return  (char *)val_string(__s);
    }
    else if (val_is_object(inVal))
-      return val_bool(inVal) ? "true":"false";
-   return "";
+      return val_bool(inVal) ? (char *)"true":(char *)"false";
+   return (char *)"";
 }
 
 int code_convert(char *from_charset,char *to_charset, const char *inbuf,size_t inlen,char *outbuf,size_t outlen)

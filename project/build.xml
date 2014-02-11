@@ -15,15 +15,12 @@
   <files id="iconv"/>
   <lib name="lib/libiconvStatic.lib" if="windows"/>
   <lib name="lib/libiconvStatic.a" if="linux"/>
-  <lib name="lib/libiconvStatic.a" if="macos"/>
+  <lib name="-liconv" if="macos"/>
   <lib name="kernel32.lib" if="windows"/>
   <lib name="user32.lib" if="windows"/>
   <lib name="comdlg32.lib" if="windows"/>
   <lib name="advapi32.lib" if="windows"/>
   <lib name="shell32.lib" if="windows"/>
-  <vflag name="-framework" value="IOKit" if="macos"/>
-  <vflag name="-framework" value="Foundation" if="macos"/>
-  <vflag name="-framework" value="Carbon" if="macos"/>
   <outdir name="../ndll/${BINDIR}"/>
 </target>
 
